@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>XMLHttpRequest Example</title>
+  </head>
+  <body>
+    <script>
+      //Create a new XMLHttpRequest object
+      // Print the total population of countries using reduce function
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET','https://restcountries.com/v3.1/all','true');
+xhr.send();
+xhr.onload=function (){
+    var countryData=JSON.parse(this.response);
+    const population=countryData.reduce((acc,element)=>{
+        return acc+element.population;
+    },0)
+    console.log(population);}
+
+      //send the request
+      xhr.send();
+    </script>
+  </body>
+</html>

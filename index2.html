@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>XMLHttpRequest Example</title>
+  </head>
+  <body>
+    <script>
+      //Create a new XMLHttpRequest object
+      //Get all the countries with a population of less than 2 lakhs using Filter function
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET','https://restcountries.com/v3.1/all','true');
+xhr.send();
+
+      xhr.onload = function () {
+        var name=JSON.parse(this.response);
+        const value=name.filter((name)=>{
+        return name.population<200000;
+        
+        })
+        console.log(value);}
+
+      //send the request
+      xhr.send();
+    </script>
+  </body>
+</html>

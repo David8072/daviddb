@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>XMLHttpRequest Example</title>
+  </head>
+  <body>
+    <script>
+      //Create a new XMLHttpRequest object
+//Get all the countries from Asia continent /region using Filter function
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET','https://restcountries.com/v3.1/all','true');
+xhr.send();
+
+      xhr.onload = function () {
+        var countryData=JSON.parse(this.response);
+    const asia=countryData.filter((element)=>{
+        if(element.region==='Asia'){
+            return element.name;
+        }
+    })
+
+
+console.log(asia);}
+
+      //send the request
+      xhr.send();
+    </script>
+  </body>
+</html>
